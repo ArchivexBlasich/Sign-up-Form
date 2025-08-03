@@ -1,3 +1,22 @@
+@font-face {
+    font-family: 'norsebold';
+    src: url('./fonts/norsebold-webfont.woff2') format('woff2'),
+         url('./fonts/norsebold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --font-main-color: #10121d;
+    --main-bg-color: #f1ebeb;
+    --form-bg-color: whitesmoke;
+    --input-border-color: #E5E7EB;
+    --button-color: #596D48;
+
+}
+
+/* ------------------------- CSS Normalize --------------------------*/
+
 /* 1. Use a more-intuitive box-sizing model */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -46,6 +65,10 @@ h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
 
+a {
+    text-decoration: none;
+}
+
 /*
   10. Create a root stacking context
 */
@@ -54,3 +77,153 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+body {
+    display: flex;
+}
+
+/* ----------------------------  Side-Bar Style --------------------------*/
+.side-bar {
+    height: 100vh;
+    flex: 1;
+    background-image: url(./assets/halie-west-25xggax4bSA-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    position: relative;
+
+    & .logo {
+        height: 2em;
+        width: 100%;
+        color: white;
+        font-size: 4rem;
+        font-family: "norsebold", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        background-color: black;
+        opacity: 0.7;
+
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+        position: absolute;
+        top: 2.5em;
+
+        & img {
+            height: 90%;
+            width: 15%;
+
+            align-self: center;
+        }
+
+        & span {
+            align-self: center;
+        }
+    }
+}
+
+
+.side-bar::after {
+    content: "Photo by Haile West on Unplush";
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    color: var(--main-bg-color);
+    font-weight: 600;
+}
+
+
+/* ------------------- Main Style ----------------------------*/
+
+.main-container {
+    height: 100vh;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    background-color: #f1ebeb;
+
+    & > section {
+        flex: 1;
+        padding: 1rem 6rem 1rem 2rem;
+    }
+}
+
+
+/* Header---------------------------------*/
+.header-section {
+    color: var(--font-main-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.header-section :first-child {
+    width: 60ch;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+
+/* Form---------------------------------*/
+.form-section {
+    background: var(--form-bg-color);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+form > div {
+    width: 45%;
+}
+
+.form-section label,
+.form-section input {
+    display: block;
+}
+
+.form-section label {
+    color: var(--font-main-color);
+    font-size: 0.8rem;
+    font-weight: 100;
+    text-transform: uppercase;
+}
+
+.form-section input {
+    width: 75%;
+    border: 2px solid var(--input-border-color);
+    border-radius: 0.5rem;
+    outline: none;
+}
+
+.form-section input:focus {
+    outline: none;
+    box-shadow: 2px 1px 2px 1px blue;
+}
+
+
+.form-section input:invalid {
+    border: none;
+    box-shadow: 2px 1px 2px 1px red;
+}
+
+
+/* -------Submit Section -----------*/
+.submit-section > button {
+    font-size: 1rem;
+    padding: 0.7em 1.5em;
+    background: var(--button-color);
+    color: var(--main-bg-color);
+    border: 0px solid transparent;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+
+    margin-bottom: 1rem;
+}
+
+a:link {
+    color: var(--button-color);
+    font-weight: 500;
+}
